@@ -11,7 +11,7 @@ import Page404 from './components/Page404';
 
 
 //Container
-import Home from './container/Home';
+import Home from './containers/Home';
 
 const AppRoutes = () =>
   <App>

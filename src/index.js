@@ -1,4 +1,5 @@
 // Dependencies
+import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -11,36 +12,35 @@ import AppRoutes from './routes';
 // Assets
 import './index.css';
 
-//Redux store
-import configureStore from '.lib/configureStore';
+// Redux store
+import configureStore from './configureStore';
 
-//Reducers
+// Reducers
 import rootReducer from './reducers';
 
-//Bluebird configuration
-window.Primise=Bluebird;
+// Bluebird configuration
+window.Promise = Bluebird;
 
-Bluebird.config({warnings:false});
+Bluebird.config({ warnings: false });
 
-window.addEventListener('unhandlerejection', error=>{
+window.addEventListener('unhandledrejection', error => {
   error.preventDefault();
 
-  if (process.env.NODE_ENV !== 'production'){
-    console.warn('Unhandled promise rejection warning. ', error.detail);
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn('Unhandled promise rejection warning.', error.detail);
   }
 });
 
-//configurin redux store
-const store= configureStore({
+// Configuring redux store
+const store = configureStore({
   initialState: window.initialState
 }, rootReducer);
 
-
 render(
   <Provider store={store}>
-  <Router>
-    <AppRoutes />
-  </Router>
+    <Router>
+      <AppRoutes />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

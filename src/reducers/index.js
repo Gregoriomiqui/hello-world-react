@@ -1,5 +1,5 @@
 //Dependencies
-import { combineReducers } from 'redux|';
+import { combineReducers } from 'redux';
 
 // Shared Reducers
 import device from  './deviceReducer';
