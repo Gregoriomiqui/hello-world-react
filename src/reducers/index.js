@@ -5,8 +5,12 @@ import { combineReducers } from 'redux';
 import device from  './deviceReducer';
 
 
+//Apps Reducers
+import library from '../containers/Library/reducer';
+
 const rootReducer= combineReducers({
-  device
+  device,
+  library
 });
 
 export default rootReducer;

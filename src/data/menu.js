@@ -4,6 +4,10 @@ export default [
     url: '/'
   },
   {
+    title:'Library',
+    url:'/library'
+  },
+  {
     title: 'About Us',
     url: '/about'
   },
